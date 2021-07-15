@@ -5,3 +5,5 @@ https://docs.microsoft.com/en-us/azure/devops/pipelines/targets/webapp?view=azur
 https://github.com/sethreidnz/azure-devops-examples/blob/master/angular-pipeline.yml
 
 https://github.com/jsmorales/angular-azure-pipelines/blob/master/azure-pipelines.yml
+
+https://stackoverflow.com/questions/51129053/how-to-run-the-dist-folder-on-local-machine-in-angular-6
