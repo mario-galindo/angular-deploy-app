@@ -1,0 +1,7 @@
+https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/javascript?view=azure-devops&tabs=code
+
+https://docs.microsoft.com/en-us/azure/devops/pipelines/targets/webapp?view=azure-devops&tabs=yaml
+
+https://github.com/sethreidnz/azure-devops-examples/blob/master/angular-pipeline.yml
+
+https://github.com/jsmorales/angular-azure-pipelines/blob/master/azure-pipelines.yml
