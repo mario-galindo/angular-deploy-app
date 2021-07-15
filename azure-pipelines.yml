@@ -21,11 +21,22 @@ steps:
     ng build --prod
   displayName: 'npm install and build'
 
-- task: ArchiveFiles@2
-  inputs:
-    rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
-    includeRootFolder: false
+- task: ArchiveFiles@1
+    displayName: 'Archive files'
+    inputs:
+      rootFolder: '$(System.DefaultWorkingDirectory)/dist/angular-deploy-app'
+      includeRootFolder: false
+
+- task: CopyFiles@2
+    displayName: 'Copy File to: $(TargetFolder)'
+    inputs:
+      SourceFolder: '$(Build.ArtifactStagingDirectory)'
+      Contents: '$(Build.BuildId).zip'
+      TargetFolder: '$(Build.ArtifactStagingDirectory)\ArtifactsToBePublished'
 
 - task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(System.DefaultWorkingDirectory)'
+    displayName: 'Publish Artifact: drop'
+    condition: succeeded()
+    inputs:
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)\ArtifactsToBePublished'
+
