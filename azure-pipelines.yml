@@ -27,7 +27,7 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    sourceFolder: '$(buildOutputFolder)' 
+    sourceFolder: '$(System.DefaultWorkingDirectory)/dist/angular-deploy-app' 
     contents: '**/*' 
     targetFolder: '$(Build.ArtifactStagingDirectory)'
     cleanTargetFolder: true
