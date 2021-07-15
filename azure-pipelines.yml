@@ -21,10 +21,10 @@ steps:
     ng build --prod
   displayName: 'npm install and build'
 
-- task: ArchiveFiles@1
+- task: ArchiveFiles@2
     displayName: 'Archive files'
     inputs:
-      rootFolder: '$(System.DefaultWorkingDirectory)/dist/angular-deploy-app'
+      rootFolder: $(System.DefaultWorkingDirectory)/dist/angular-deploy-app
       includeRootFolder: false
 
 - task: CopyFiles@2
