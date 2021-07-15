@@ -9,6 +9,10 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+variables:
+  projectFolder: 'src/angular'
+  buildOutputFolder: 'src/angular/dist/angular'
+
 steps:
 - task: NodeTool@0
   inputs:
