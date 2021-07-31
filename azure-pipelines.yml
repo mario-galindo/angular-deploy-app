@@ -40,3 +40,23 @@ stages:
       inputs:
         pathtoPublish: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
 
+- stage: 'Deploy'
+  displayName: 'Deploy Angular App to Azure App Service'
+  dependsOn: Build
+  jobs:
+  - deployment: Deploy
+    pool:
+      vmImage: ubuntu-latest
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - download: current
+            artifact: drop
+          - task: AzureWebApp@1
+            displayName: 'Azure App Service Deploy: website'
+            inputs:
+              azureSubscription: 'Resource Manager - Tailspin - Space Game'
+              appName: 'angular-example-app-2810'
+              package: '$(Pipeline.Workspace)/drop/$(Build.BuildId)/*.zip'
+
